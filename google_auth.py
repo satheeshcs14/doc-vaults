@@ -76,14 +76,14 @@ def logout():
     return redirect(signin)
 
 
-# @app.route("/home")  # Add a leading slash
-# def home():
-#     return "hello world"
+ @app.route("/home")  # Add a leading slash
+ def home():
+     return "hello world"
 
 
 
-# @app.route("/inside")  # Add a leading slash
-# @login_is_required     # Is is the wapper function for the authication 
-# def inside():
-#     return "you are in your id"
+ @app.route("/inside")  
+ @login_is_required    
+ def inside():
+     return "id"
 
