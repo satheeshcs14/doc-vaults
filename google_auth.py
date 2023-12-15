@@ -13,16 +13,16 @@ from route import signin
 
 
 
-app.secret_key = "sourcemonq@1234"
+app.secret_key = ""
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
-goole_client_id ="710643255963-6lv624ak9v7kdjmahfcdc4stnasmcgc3.apps.googleusercontent.com"    # this is dowload in google console
+goole_client_id ="710643255963-6lv624ayk9v7kkdjmahfcdc4stnasmcgc3.apps.googleusercontent.com"    
 client_secrets_file = os.path.join(pathlib.Path(__file__).parents[0], "client_secret.json")
 
 
 
 
-flow = Flow.from_client_secrets_file(             # it should be name of same in downloading of google file
+flow = Flow.from_client_secrets_file(             
                  client_secrets_file=client_secrets_file,
                  scopes=["https://www.googleapis.com/auth/userinfo.profile","https://www.googleapis.com/auth/userinfo.email","openid"],
                  redirect_uri="http://127.0.0.1:5000/callback")
@@ -33,8 +33,8 @@ flow = Flow.from_client_secrets_file(             # it should be name of same in
 
 def login_is_required(function):
     def wrapper(*args, **kwargs):
-        if "google_id" not in session:          #it is useing for the authorization 
-            return abort(401)                    # if it is own user or not 
+        if "google_id" not in session:          
+            return abort(401)                    
         else :
             return function(*args, **kwargs)
     return wrapper
